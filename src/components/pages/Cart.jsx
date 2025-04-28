@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { CartContext } from '../contexts/CartContext';
-
+import del from '../../assets/icon-delete.svg'
 
 function CartPage() {
   const { cart, reduceQuantity, addToCart, removeFromCart, totalPrice } = useContext(CartContext);
@@ -13,7 +13,6 @@ function CartPage() {
         <p className="text-center text-xl">Your cart is empty.</p>
       ) : (
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Left side - Cart Items */}
           <div className="flex-1 space-y-6">
             {cart.map((item) => (
               <div
@@ -48,15 +47,14 @@ function CartPage() {
 
                 <button
                   onClick={() => removeFromCart(item.id)}
-                  className="ml-4 text-red-500"
+                  className="ml-4 text-gray-900 bg-gray-800"
                 >
-                  Remove
+                  <img src={del} alt="" />
                 </button>
               </div>
             ))}
           </div>
 
-          {/* Right side - Cart Summary */}
           <div className="w-full lg:w-1/3 bg-white shadow-md rounded-lg p-6 h-fit">
             <h2 className="text-2xl font-bold mb-6">Order Summary</h2>
             <div className="flex justify-between mb-4">

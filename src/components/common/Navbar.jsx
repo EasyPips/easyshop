@@ -16,14 +16,11 @@ function Navbar() {
     <nav className="bg-white shadow-md fixed w-full z-10">
       <div className="container mx-auto flex items-center justify-between p-4">
         
-        {/* Left - Logo + Hamburger for mobile */}
         <div className="flex items-center space-x-4">
-          {/* Logo - hidden on small screens */}
           <a href="#" className="hidden md:block">
             <img src={logo} alt="Logo" className="h-8 w-auto" />
           </a>
 
-          {/* Hamburger (mobile) */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden"
@@ -36,7 +33,6 @@ function Navbar() {
           </button>
         </div>
 
-        {/* Center - Menu List */}
         <ul className="hidden md:flex space-x-8 text-gray-700 text-xl font-medium">
           <li>
             <Link to="/" className="hover:text-gray-900">
@@ -65,9 +61,7 @@ function Navbar() {
           </li>
         </ul>
 
-        {/* Right - Cart + User Icons */}
         <div className="flex items-center space-x-6">
-          {/* Cart Icon */}
           <div className="relative">
             <Link to='/cart'>
               <img src={cart} alt="Cart" className="w-7 h-7" />
@@ -79,7 +73,6 @@ function Navbar() {
             </Link>
           </div>
 
-          {/* User Profile Icon */}
           <div>
             <a href="#">
               <img src={user} alt="User" className="w-8 h-8 rounded-full" />
@@ -88,15 +81,14 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
       {menuOpen && (
         <div className="md:hidden bg-white shadow-md">
           <ul className="flex flex-col items-center space-y-4 py-4 text-gray-700 text-lg font-medium">
-            <li><a href="#" onClick={() => setMenuOpen(false)}>Home</a></li>
-            <li><a href="#" onClick={() => setMenuOpen(false)}>Shop</a></li>
-            <li><a href="#" onClick={() => setMenuOpen(false)}>About</a></li>
-            <li><a href="#" onClick={() => setMenuOpen(false)}>Contact</a></li>
-            <li><a href="#" onClick={() => setMenuOpen(false)}>Blog</a></li>
+            <li><Link to='/' onClick={() => setMenuOpen(false)}>Home</Link></li>
+            <li><Link  onClick={() => setMenuOpen(false)}>Shop</Link></li>
+            <li><Link  onClick={() => setMenuOpen(false)}>About</Link></li>
+            <li><Link  onClick={() => setMenuOpen(false)}>Contact</Link></li>
+            <li><Link  onClick={() => setMenuOpen(false)}>Blog</Link></li>
           </ul>
         </div>
       )}
