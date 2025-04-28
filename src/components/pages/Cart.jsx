@@ -1,11 +1,12 @@
 import { useContext } from 'react';
 import { CartContext } from '../contexts/CartContext';
 
+
 function CartPage() {
   const { cart, reduceQuantity, addToCart, removeFromCart, totalPrice } = useContext(CartContext);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
+    <div className="pt-30 min-h-screen bg-gray-100 p-8">
       <h1 className="text-3xl font-bold mb-8 text-center">Shopping Cart</h1>
 
       {cart.length === 0 ? (
@@ -47,7 +48,7 @@ function CartPage() {
 
                 <button
                   onClick={() => removeFromCart(item.id)}
-                  className="ml-4 text-red-500 hover:underline"
+                  className="ml-4 text-red-500"
                 >
                   Remove
                 </button>
@@ -68,7 +69,7 @@ function CartPage() {
             </div>
 
             <button
-              className="w-full bg-orange-400 hover:bg-orange-500 text-white font-bold py-3 rounded-lg mt-6"
+              className="w-full bg-orange-400 hover:bg-orange-500 text-white font-bold py-3 rounded-lg mt-8"
             >
               Proceed to Checkout
             </button>

@@ -5,6 +5,8 @@ import close from '../../assets/icon-close.svg';
 import cart from '../../assets/icon-cart.svg';
 import logo from '../../assets/logo.svg';
 import user from '../../assets/image-avatar.png';
+import { Link } from 'react-router-dom';
+
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -35,26 +37,46 @@ function Navbar() {
         </div>
 
         {/* Center - Menu List */}
-        <ul className="hidden md:flex space-x-8 text-gray-700 text-2xl font-medium">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Shop</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Blog</a></li>
+        <ul className="hidden md:flex space-x-8 text-gray-700 text-xl font-medium">
+          <li>
+            <Link to="/" className="hover:text-gray-900">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/shop" className="hover:text-gray-900">
+              Shop
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" className="hover:text-gray-900">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" className="hover:text-gray-900">
+              Contact
+            </Link>
+          </li>
+          <li>
+            <Link to="/blog" className="hover:text-gray-900">
+              Blog
+            </Link>
+          </li>
         </ul>
 
         {/* Right - Cart + User Icons */}
         <div className="flex items-center space-x-6">
           {/* Cart Icon */}
           <div className="relative">
-            <a href="#">
+            <Link to='/cart'>
               <img src={cart} alt="Cart" className="w-7 h-7" />
               {cartCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                   {cartCount}
                 </span>
               )}
-            </a>
+            </Link>
           </div>
 
           {/* User Profile Icon */}
